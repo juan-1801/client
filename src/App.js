@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import CartMenu from "./scenes/global/cartMenu";
 import Navbar from "./scenes/global/Navbar";
 /* import Confirmation from "./scenes/cheackout/confirmation"; */
 /* import Checkout from "./scenes/cheackout/checkout"; */
@@ -15,23 +16,28 @@ import Navbar from "./scenes/global/Navbar";
 const ScrollToTop = () => {
   const { pathname } = useLocation;
 
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, { pathname })
+  useEffect(
+    () => {
+      window.scroll(0, 0);
+    },
+    { pathname }
+  );
 
   return null;
-}
+};
 
 function App() {
   return (
     <div className="app">
       <BrowserRouter>
-      <Navbar/>
-        <ScrollToTop/> 
+        <Navbar />
+
+        <ScrollToTop />
         {/* <Route path="/" element={<Home/>} /> */}
-       {/*  <Route path="item/:itemId" element={<ItemDetails/>} /> */}
+        {/*  <Route path="item/:itemId" element={<ItemDetails/>} /> */}
         {/* <Route path="checkout" element={<Checkout/>} /> */}
         {/* <Route path="checkout/success" element={<Confirmation/>} /> */}
+        <CartMenu />
       </BrowserRouter>
     </div>
   );
